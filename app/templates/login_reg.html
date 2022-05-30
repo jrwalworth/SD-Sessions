@@ -23,19 +23,17 @@
                         <a href="#" class="register">Sign Up</a>
                     </div>
                     <div class="login-content">
-                        <h3>Get Started</h3>
+                        <h3>Login</h3>
                         <form action='/login' class='myForm loginForm' method='post'>
-                            <h3>Login</h3>
                             <div>
                                 <section>
-                                    <label for="email" class="text-light mb-1">Email:</label>
-                                    <input type="text" class="d-block mb-3 form-control" name="email">
+                                    <label for="username" class="text-light mb-1">Username:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="username">
                                 </section>
                                 <section>
                                     <label for="password" class="text-light mb-1">Password:</label>
                                     <input type="password" class="d-block mb-4 form-control" name="password">
                                 </section>
-                    
                                 <input type='submit' value="Login" >
                             </div>
                         </form>
@@ -43,17 +41,46 @@
                     <div class="reg-content">
                         <h3>Register with us</h3>
                         <form action='/register' class='myForm regForm' method='post'>
-                            <h3>Register </h3>
                             <div>
                                 <section>
-                                    <label for="email" class="text-light mb-1">Email:</label>
-                                    <input type="text" class="d-block mb-3 form-control" name="email">
+                                    <label for="username" class="text-light mb-1">Username:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="username">
                                 </section>
                                 <section>
                                     <label for="password" class="text-light mb-1">Password:</label>
                                     <input type="password" class="d-block mb-4 form-control" name="password">
                                 </section>
-                    
+                                <section>
+                                    <label for="conf-password" class="text-light mb-1">Confirm Password:</label>
+                                    <input type="password" class="d mb-2 form-control" name="conf-password">
+                                </section>
+                                <section>
+                                    <label for="first_name" class="text-light mb-1">First Name:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="first_name">
+                                </section>
+                                <section>
+                                    <label for="last_name" class="text-light mb-1">Last Name:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="last_name">
+                                </section>
+                                <section>
+                                    <label for="email" class="text-light mb-1">Email:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="email">
+                                </section>
+                                <section>
+                                    <label for="bio" class="text-light mb-1">Bio:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="bio">
+                                </section>
+                                <section>
+                                    <label for="stance" class="text-light mb-1">Stance:</label>
+                                    <select name="stance" id="stance">
+                                        <option value="regular">Regular</option>
+                                        <option value="goofy">Goofy</option>
+                                    </select>
+                                </section>
+                                <section>
+                                    <label for="avatar" class="text-light mb-1">Photo:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="avatar">
+                                </section>
                                 <input type='submit' value="Login" >
                             </div>
                         </form>
@@ -64,7 +91,6 @@
         </div>
         
     </body>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/login_reg.js') }}"></script>
 </html>

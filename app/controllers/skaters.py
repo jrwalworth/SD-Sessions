@@ -23,11 +23,15 @@ def register():
     if not isValid:
         return redirect('/')
     newSkater = {
+        'username' : request.form['username'],
         'first_name' : request.form['first_name'],
         'last_name' : request.form['last_name'],
         'email' : request.form['email'],
         #hash password
         'password' : bcrypt.generate_password_hash(request.form['password']),
+        'bio' : request.form['bio'],
+        'stance' : request.form['stance'],
+        'avatar' : request.form['avatar'],
     }
     id = Skater.insert(newSkater)
     if not id:
@@ -41,11 +45,11 @@ def register():
 @app.route('/login', methods=['POST'])
 def login():
     data = {
-        'email' : request.form['email']
+        'username' : request.form['username']
     }
-    skater = Skater.get_email(data)
+    skater = Skater.get_username(data)
     if not skater:
-        flash('That email is not in our database. Please register.')
+        flash('That username is not in our database. Please register.')
         return redirect('/')
     if not bcrypt.check_password_hash(skater.password, request.form['password']):
         flash('Wrong password.')

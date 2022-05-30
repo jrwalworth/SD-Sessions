@@ -45,9 +45,17 @@ class Skater:
         return cls(results[0])
     
     @classmethod
+    def get_username(cls, data):
+        query = "SELECT * FROM skater WHERE username=%(username)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+    
+    @classmethod
     def insert(cls, data):
         query = "INSERT INTO skater (username, password, first_name, last_name, email, \
-            bio, stance, avatar, created_at, updated_at) VALUES (%(username)s, %(password)s \
+            bio, stance, avatar, created_at, updated_at) VALUES (%(username)s, %(password)s, \
             %(first_name)s, %(last_name)s, %(email)s, %(bio)s, %(stance)s, %(avatar)s, \
             NOW(), NOW() );"
         return connectToMySQL(cls.db).query_db(query, data)
@@ -70,7 +78,7 @@ class Skater:
     def validate_registration(skater):
         is_valid = True
         query = 'SELECT * FROM skater WHERE email=%(email)s;'
-        results = connectToMySQL(User.db).query_db(query, skater)
+        results = connectToMySQL(Skater.db).query_db(query, skater)
         #validate username
         if len(skater['username']) < 2:
             flash('Username must be at least two characters.')
@@ -80,7 +88,7 @@ class Skater:
             is_valid = False
             flash("Password must be at least 8 characters. Try again.")
         #confirm password
-        if skater['password'] != skater['confirm']:
+        if skater['password'] != skater['conf-password']:
             is_valid = False
             flash('Passwords must match.')
         #validate names
