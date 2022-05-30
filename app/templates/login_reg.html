@@ -10,16 +10,61 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginpg.css') }}">
     </head>
     <body>
         <div class="wrapper">
             {% block nav %}{% include 'nav.html' %}{% endblock nav %}
             <div class="main-content">
                 <h1>Login/Registration Page</h1>
+                <div class="main">
+                    <div id="tab-btn">
+                        <a href="#" class="login active">Sign In</a>
+                        <a href="#" class="register">Sign Up</a>
+                    </div>
+                    <div class="login-content">
+                        <h3>Get Started</h3>
+                        <form action='/login' class='myForm loginForm' method='post'>
+                            <h3>Login</h3>
+                            <div>
+                                <section>
+                                    <label for="email" class="text-light mb-1">Email:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="email">
+                                </section>
+                                <section>
+                                    <label for="password" class="text-light mb-1">Password:</label>
+                                    <input type="password" class="d-block mb-4 form-control" name="password">
+                                </section>
+                    
+                                <input type='submit' value="Login" >
+                            </div>
+                        </form>
+                    </div>
+                    <div class="reg-content">
+                        <h3>Register with us</h3>
+                        <form action='/register' class='myForm regForm' method='post'>
+                            <h3>Register </h3>
+                            <div>
+                                <section>
+                                    <label for="email" class="text-light mb-1">Email:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="email">
+                                </section>
+                                <section>
+                                    <label for="password" class="text-light mb-1">Password:</label>
+                                    <input type="password" class="d-block mb-4 form-control" name="password">
+                                </section>
+                    
+                                <input type='submit' value="Login" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             {% block foot %}{% include 'foot.html' %}{% endblock foot %}
         </div>
-    
+        
     </body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/login_reg.js') }}"></script>
 </html>

@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.main {
+    padding: 2em;
+    width: 30%;
+}
+
+#tab-btn {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.login, .register {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    background-color: rgb(76, 76, 92);
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.active {
+    background-color: #eee;
+    color: #000;
+}
+
+.login-content, .reg-content {
+    width: 100%;
+    background-color: #eee;
+    padding: 20px 30px 30px 30px;
+    box-shadow: 2px 2px 5px #333;
+}
+
+.reg-content {
+    display: none;
+}

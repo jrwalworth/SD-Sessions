@@ -1,4 +1,4 @@
-from app.controllers import skater
+from app.controllers import skaters
 from app import app
 
 

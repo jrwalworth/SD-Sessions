@@ -1,0 +1,48 @@
+* {
+    margin:0;
+    padding:0;
+    font-family: Ubuntu, sans-serif;
+}
+
+.nav {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: brown;
+    color: white;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+}
+
+#page-title {
+    cursor: pointer;
+    color: white;
+}
+
+#home {
+    text-decoration: none;
+}

@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+/* .wrapper {
+    width: 100%;
+} */
+
+.main-content {
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+}

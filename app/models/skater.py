@@ -4,8 +4,8 @@ import re
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 
-class User:
-    db = 'recipes_schema'
+class Skater:
+    db = 'sk8rmap'
     def __init__(self, data):
         self.id = data['id']
         self.username = data['username']
@@ -75,6 +75,21 @@ class User:
         if len(skater['username']) < 2:
             flash('Username must be at least two characters.')
             is_valid = False
+        #validate password
+        if len(skater['password']) < 8:
+            is_valid = False
+            flash("Password must be at least 8 characters. Try again.")
+        #confirm password
+        if skater['password'] != skater['confirm']:
+            is_valid = False
+            flash('Passwords must match.')
+        #validate names
+        if len(skater['first_name']) < 2:
+            flash('First name must be at least two characters.')
+            is_valid = False
+        if len(skater['last_name']) < 2:
+            flash('Last name must be at least two characters.')
+            is_valid = False
         #validate email
         if len(skater['email']) < 1:
             is_valid = False
@@ -85,22 +100,7 @@ class User:
         if len(results) >= 1:
             is_valid = False
             flash('This email is already being used.')
-        #validate names
-        if len(skater['first_name']) < 2:
-            flash('First name must be at least two characters.')
-            is_valid = False
-        if len(skater['last_name']) < 2:
-            flash('Last name must be at least two characters.')
-            is_valid = False
-        #validate password
-        if len(skater['password']) < 8:
-            is_valid = False
-            flash("Password must be at least 8 characters. Try again.")
-        #confirm password
-        if skater['password'] != skater['confirm']:
-            is_valid = False
-            flash('Passwords must match.')
         return is_valid
-        
+
     def fullName(self):
         return (self.first_name, self.last_name)
