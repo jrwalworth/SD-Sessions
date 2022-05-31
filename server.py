@@ -1,4 +1,4 @@
-from app.controllers import skaters
+from app.controllers import skaters, spots
 from app import app
 
 

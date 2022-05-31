@@ -1,12 +1,84 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Spot</title>
-</head>
-<body>
-    <div>Add Spot Page</div>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sk8rMAP Add Spot</title>
+        <meta name="description" content="Local skatespots and skateparks at your fingertips.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% block nav %}{% include 'nav.html' %}{% endblock nav %}
+            <div class="main-content">
+                <h1>Add new Skate Spot</h1>
+                    <div class="spot-content">
+                        
+                        <form action='/createspot' class='myForm spotForm' method='post'>
+                            <div>
+                                <section>
+                                    <label for="name" class="text-light mb-1">Name:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="name">
+                                </section>
+                                <section>
+                                    <label for="spot_aka" class="text-light mb-1">Nicknames:</label>
+                                    <input type="text" class="d-block mb-4 form-control" name="spot_aka">
+                                </section>
+                                <section>
+                                    <label for="address" class="text-light mb-1">Address:</label>
+                                    <input type="text" class="d mb-2 form-control" name="address">
+                                </section>
+                                <section>
+                                    <label for="city" class="text-light mb-1">City:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="city">
+                                </section>
+                                <section>
+                                    <label for="State" class="text-light mb-1">State:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="state">
+                                </section>
+                                <section>
+                                    <label for="zip" class="text-light mb-1">Zipcode:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="zip">
+                                </section>
+                                <section>
+                                    <label for="lat" class="text-light mb-1">Lat:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="lat">
+                                </section>
+                                <section>
+                                    <label for="lon" class="text-light mb-1">Lon:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="lon">
+                                </section>
+                                <section>
+                                    <label for="type" class="text-light mb-1">Type:</label>
+                                    <select name="type" id="type">
+                                        <option value="Street">Street</option>
+                                        <option value="Park">Skatepark</option>
+                                    </select>
+                                </section>
+                                <section>
+                                    <label for="photo" class="text-light mb-1">Photo:</label>
+                                    <input type="text" class="d-block mb-3 form-control" name="photo">
+                                </section>
+                                <section>
+                                    <label for="rating" class="text-light mb-1">Rating:</label>
+                                    <input type="number" class="d-block mb-3 form-control" name="rating">
+                                </section>
+                                <input type="hidden" name="skater_id" value="{{skater.id}}">
+                                <input type='submit' value="Submit New Spot" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% block foot %}{% include 'foot.html' %}{% endblock foot %}
+        </div>
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/login_reg.js') }}"></script>
 </html>

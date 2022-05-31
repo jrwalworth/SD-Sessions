@@ -7,12 +7,16 @@ from app import app
 #route to show add spot html page
 @app.route('/addspot')
 def add_spot_pg():
+    data = {
+        "id" :id,
+    }
+    skater = Skater.get_one(data);
     if 'skater_id' not in session:
         flash('You must be logged in to view this page.')
         return redirect('/')
-    return render_template('add_spot.html')
+    return render_template('add_spot.html',skater=skater)
 
-#hidden route to create recipe
+#hidden route to create skate spot
 @app.route('/createspot', methods=['POST'])
 def create_spot():
     if 'skater_id' not in session:
@@ -42,11 +46,11 @@ def edit_spot(id):
         'id': id,
     }
     spot = Spot.get_one_spot(data)
-    if 'user_id' not in session:
+    if 'skater_id' not in session:
         flash('You must be logged in to view this page.')
         return redirect('/')
     if spot.skater_id != session['skater_id']:
-        flash('You did not create this recipe to be able to udpate it.')
+        flash('You did not create this spot to be able to udpate it.')
         return redirect('/dashboard')
     return render_template('edit_spot.html', spot=spot)
     

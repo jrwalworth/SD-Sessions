@@ -62,7 +62,7 @@ class Skater:
     
     @classmethod
     def update(cls, data):
-        query = "UPDATE skater SET username=%(username)s, password=%(password)s \
+        query = "UPDATE skater SET username=%(username)s, password=%(password)s, \
             first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, \
             bio=%(bio)s, stance=%(stance)s, avatar=%(avatar)s, updated_at=NOW() \
             WHERE id=%(id)s;"

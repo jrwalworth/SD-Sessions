@@ -12,6 +12,7 @@
             <a id="home" href="/"><h1 id="page-title">Sk8rMAP</h1></a>
             <!-- <img src="" alt="nav-img" class="nav-img"> -->
             <ul class="nav-links">
+                <a href="/"><li class="nav-link">Home</li></a>
                 <a href="/street"><li class="nav-link">Street</li></a>
                 <a href="/parks"><li class="nav-link">Parks</li></a>
                 <a href="/community"><li class="nav-link">Community</li></a>
@@ -20,6 +21,7 @@
                     <a href="/loginpg"><li class="nav-link">Login</li></a>
                 {% endif %}
                 {% if session['skater_id'] %}
+                <a href="/dashboard"><li class="nav-link">Dashboard</li></a>
                     <a href="/logout"><li class="nav-link">Logout</li></a>
                 {% endif %}
                 
@@ -28,5 +30,7 @@
                 <a href="">Login/Register</a>
             </div> -->
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
     </body>
 </html>

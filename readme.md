@@ -15,3 +15,6 @@
 7. Spot submissions - take a pic, tag it, categorize it, share it.
 8. Rating scale for skate spots and shops will be based on a 4 point scale and will be rated in wheels. A one wheel rating is low, while a 4wheel rating is the best. Most ratings are estimated to be in the 2-4 range if they are on the platform.
 
+### Features and Attributions
+- Leaflet & OpenStreetMap API for open source map visualization and tagging.
+- LatLong.net webscrape to generate lat/lon coordinates for specify address.

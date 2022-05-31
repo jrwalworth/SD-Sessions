@@ -25,10 +25,28 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                <h1>Welcome Home</h1>
+                <div>
+                    <div class="header-area">
+                        <h1>Welcome Home</h1>
+                        <div>
+                            <input type="text" value="Search Spot">
+                        </div>
+                    </div>
+                    <div>
+                        New Spots
+                    </div>
+                    <div>
+                        Categories
+                    </div>
+                    <div class="donut">
+                        <h4 class="text-curve">test donut</h4>
+
+                    </div>
+                </div>
             </div>
             {% block foot %}{% include 'foot.html' %}{% endblock foot %}
         </div>
-    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/rating.js') }}"></script>
     </body>
 </html>

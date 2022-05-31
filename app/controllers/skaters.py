@@ -58,6 +58,33 @@ def login():
     # flash('You are logged in.')
     return redirect('/dashboard')
 
+#edit user page
+@app.route('/profile/<int:id>/edit')
+def edit_user(id):
+    data = {
+        "id" : id,
+    }
+    skater = Skater.get_one(data)
+    return render_template('edit_user.html', skater=skater)
+
+#Update user in db from form
+@app.route('/profile/<int:id>/update', methods=['POST'])
+def update_db(id):
+    data = {
+        'id' : id,
+        'username' : request.form['username'],
+        'password' : request.form['password'],
+        'first_name' : request.form['first_name'],
+        'last_name' : request.form['last_name'],
+        'email' : request.form['email'],
+        'bio' : request.form['bio'],
+        'stance' : request.form['stance'],
+        'avatar' : request.form['avatar'],
+    }
+    Skater.update(data)
+    return redirect(f'/dashboard')
+
+
 @app.route('/community')
 def community():
     return render_template('community.html')
@@ -77,7 +104,6 @@ def mapview():
 # @app.route('/dashboard')
 # def dashboard():
 #     return render_template('dashboard.html')
-
 
 
 #view page after login successfully

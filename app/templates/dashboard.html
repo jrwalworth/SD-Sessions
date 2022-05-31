@@ -11,13 +11,41 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
     </head>
     <body>
         <div class="wrapper">
             {% block nav %}{% include 'nav.html' %}{% endblock nav %}
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col">col1</div>
+                    <div class="col">col2</div>
+                </div>
+            </div> -->
             <div class="main-content">
                 <h1>Profile Dashboard</h1>
                 <h4>Welcome {{skater.first_name}}</h4>
+                <div class="profile-details">
+                    show profile details here
+                </div>
+                <div class="row">
+                    <div class="left-main">
+                        <ul>
+                            <li><a href="/profile/{{skater.id}}/edit">Edit Profile</a></li>
+                            <li><a href="#">Your favorites</a></li>
+                            {% if session['skater_id'] %}
+                            <li><a href="/addspot">Add a spot</a></li>
+                            {% endif %}
+                        </ul>
+
+                    </div>
+                    <div class="right-main">
+                        <h4>Featured...</h4>
+                        <div>messages</div>
+                        <div>online friends</div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
             {% block foot %}{% include 'foot.html' %}{% endblock foot %}
         </div>

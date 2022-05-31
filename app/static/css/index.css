@@ -14,3 +14,15 @@
     text-align: center;
     margin-top: 2rem;
 }
+
+.donut {
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 25%, red 40%);
+    height: 300px;
+    width: 300px;
+}
+
+.donut:hover {
+    cursor: pointer;
+}
+

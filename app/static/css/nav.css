@@ -38,6 +38,11 @@
     font-weight: bold;
 }
 
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 #page-title {
     cursor: pointer;
     color: white;

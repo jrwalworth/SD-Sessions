@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    display: block;
+}
+
+.row {
+    padding: 5px;
+    display: flex;
+}
+
+.profile-details {
+    margin: 15px;
+}
+
+.left-main {
+    display: block;
+    width: 20%;
+    border: 1px dotted grey;
+}
+
+.left-main ul {
+    list-style-type: none;
+}
+
+.right-main {
+    width: 80%;
+    border: 1px dotted grey;
+    /* margin-left: 20%; */
+}
