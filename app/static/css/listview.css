@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.list-view {
+
+}
+
+.card {
+    border: 1px dotted brown;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 10px;
+    box-shadow: 10px 10px 10px #eee;
+}
+
+.card:hover {
+    border: 3px solid grey;
+    box-shadow: 5px 7px 7px brown;
+    opacity: 70%;
+}

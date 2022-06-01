@@ -1,6 +1,6 @@
 from flask import render_template, redirect, session, flash, request
 from app.models.skater import Skater
-# from app.models.recipe import Recipe
+from app.models.spot import Spot
 from app import app
 from flask_bcrypt import Bcrypt
 
@@ -29,9 +29,9 @@ def register():
         'email' : request.form['email'],
         #hash password
         'password' : bcrypt.generate_password_hash(request.form['password']),
-        'bio' : request.form['bio'],
-        'stance' : request.form['stance'],
-        'avatar' : request.form['avatar'],
+        # 'bio' : request.form['bio'],
+        # 'stance' : request.form['stance'],
+        # 'avatar' : request.form['avatar'],
     }
     id = Skater.insert(newSkater)
     if not id:
@@ -89,13 +89,6 @@ def update_db(id):
 def community():
     return render_template('community.html')
 
-@app.route('/street')
-def street():
-    return render_template('street.html')
-
-@app.route('/parks')
-def parks():
-    return render_template('parks.html')
 
 @app.route('/map')
 def mapview():

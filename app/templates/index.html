@@ -27,9 +27,10 @@
                 </div>
                 <div>
                     <div class="header-area">
-                        <h1>Welcome Home</h1>
-                        <div>
-                            <input type="text" value="Search Spot">
+                        <!-- <h1>Welcome Home</h1> -->
+                        <div class="search-area">
+                            <label class="search-label" for="search"></label>
+                            <input class="search-input" type="text" id="search" name="search" placeholder="Search Spot">
                         </div>
                     </div>
                     <div>
@@ -38,10 +39,10 @@
                     <div>
                         Categories
                     </div>
-                    <div class="donut">
+                    <!-- <div class="donut">
                         <h4 class="text-curve">test donut</h4>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
             {% block foot %}{% include 'foot.html' %}{% endblock foot %}

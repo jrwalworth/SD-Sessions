@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
     <body>
@@ -28,7 +29,7 @@
                                 <section>
                                     <label for="spot_aka" class="text-light mb-1">Nicknames:</label>
                                     <input type="text" class="d-block mb-4 form-control" name="spot_aka">
-                                </section>
+                                </section> 
                                 <section>
                                     <label for="address" class="text-light mb-1">Address:</label>
                                     <input type="text" class="d mb-2 form-control" name="address">
@@ -45,24 +46,30 @@
                                     <label for="zip" class="text-light mb-1">Zipcode:</label>
                                     <input type="text" class="d-block mb-3 form-control" name="zip">
                                 </section>
-                                <section>
+                                <!-- <section>
                                     <label for="lat" class="text-light mb-1">Lat:</label>
                                     <input type="text" class="d-block mb-3 form-control" name="lat">
                                 </section>
                                 <section>
                                     <label for="lon" class="text-light mb-1">Lon:</label>
                                     <input type="text" class="d-block mb-3 form-control" name="lon">
-                                </section>
+                                </section> -->
                                 <section>
                                     <label for="type" class="text-light mb-1">Type:</label>
                                     <select name="type" id="type">
                                         <option value="Street">Street</option>
-                                        <option value="Park">Skatepark</option>
+                                        <option value="Skatepark">Skatepark</option>
                                     </select>
                                 </section>
                                 <section>
-                                    <label for="photo" class="text-light mb-1">Photo:</label>
-                                    <input type="text" class="d-block mb-3 form-control" name="photo">
+                                    <label for="descr" class="text-light mb-1">Description:</label>
+                                    <textarea name="descr" id="descr" cols="30" rows="10"></textarea>
+                                    <!-- <input type="textarea" class="d-block mb-4 form-control" name="descr"> -->
+                                </section>
+
+                                <section>
+                                    <label for="photos" class="text-light mb-1">Photo:</label>
+                                    <input type="url" class="d-block mb-3 form-control" name="photos">
                                 </section>
                                 <section>
                                     <label for="rating" class="text-light mb-1">Rating:</label>

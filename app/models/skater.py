@@ -55,9 +55,8 @@ class Skater:
     @classmethod
     def insert(cls, data):
         query = "INSERT INTO skater (username, password, first_name, last_name, email, \
-            bio, stance, avatar, created_at, updated_at) VALUES (%(username)s, %(password)s, \
-            %(first_name)s, %(last_name)s, %(email)s, %(bio)s, %(stance)s, %(avatar)s, \
-            NOW(), NOW() );"
+            created_at, updated_at) VALUES (%(username)s, %(password)s, %(first_name)s, \
+                %(last_name)s, %(email)s, NOW(), NOW() );"
         return connectToMySQL(cls.db).query_db(query, data)
     
     @classmethod

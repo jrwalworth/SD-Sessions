@@ -3,6 +3,17 @@ from app.models.skater import Skater
 from app.models.spot import Spot
 from app import app
 
+#get all street spots
+@app.route('/street')
+def street():
+    spots = Spot.get_all_streetspots()
+    return render_template('street.html', spots=spots)
+
+#get all skate parks
+@app.route('/parks')
+def parks():
+    spots = Spot.get_all_skateparks()
+    return render_template('parks.html', spots=spots)
 
 #route to show add spot html page
 @app.route('/addspot')
@@ -26,17 +37,19 @@ def create_spot():
         'skater_id' : session['skater_id'],
         'name' : request.form['name'],
         'spot_aka' : request.form['spot_aka'],
+        'descr' : request.form['descr'],
         'address' : request.form['address'],
         'city' : request.form['city'],
         'state' : request.form['state'],
         'zip' : request.form['zip'],
-        'lon' : request.form['lon'],
-        'lat' : request.form['lat'],
+        # 'lon' : request.form['lon'],
+        # 'lat' : request.form['lat'],
         'type' : request.form['type'],
         'photos' : request.form['photos'],
         'rating' : request.form['rating'],
     }
     Spot.insert_spot(newSpot)
+    flash("New spot added; let's get rolling.")
     return redirect('/dashboard')
 
 #edit page
@@ -61,6 +74,7 @@ def update_spot_in_db():
         'skater_id' : session['skater_id'],
         'name' : request.form['name'],
         'spot_aka' : request.form['spot_aka'],
+        'descr' : request.form['descr'],
         'address' : request.form['address'],
         'city' : request.form['city'],
         'state' : request.form['state'],

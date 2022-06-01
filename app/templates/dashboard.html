@@ -25,6 +25,15 @@
             <div class="main-content">
                 <h1>Profile Dashboard</h1>
                 <h4>Welcome {{skater.first_name}}</h4>
+                <div class="messages">
+                    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                        {% if messages %}                            <!-- check if there are any messages -->
+                            {% for message in messages %}            <!-- loop through the messages -->
+                                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
                 <div class="profile-details">
                     show profile details here
                 </div>
@@ -45,6 +54,10 @@
                         <div>online friends</div>
                         <div></div>
                     </div>
+                </div>
+                <div>
+                    <div>spot you've added</div>
+                    <div>friends</div>
                 </div>
             </div>
             {% block foot %}{% include 'foot.html' %}{% endblock foot %}
