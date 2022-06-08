@@ -1,7 +1,7 @@
-# Sk8erMap
+# SD-Sessions
 
 
-## Bringing the local skate spots to your fingertips.
+## Bringing the local San Diego skate spots to your fingertips.
 
 
 
@@ -18,3 +18,4 @@
 ### Features and Attributions
 - Leaflet & OpenStreetMap API for open source map visualization and tagging.
 - LatLong.net webscrape to generate lat/lon coordinates for specify address.
+- Pexel images
