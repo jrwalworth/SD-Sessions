@@ -4,12 +4,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sk8rMAP</title>
+        <title>SD-Sessions</title>
         <meta name="description" content="Local skatespots and skateparks at your fingertips.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
     <body>
@@ -26,18 +27,34 @@
                     {% endwith %}
                 </div>
                 <div>
-                    <div class="header-area">
+                    <div class="header-area d-flex justify-content-between">
                         <!-- <h1>Welcome Home</h1> -->
                         <div class="search-area">
                             <label class="search-label" for="search"></label>
                             <input class="search-input" type="text" id="search" name="search" placeholder="Search Spot">
                         </div>
+                        <div class="new-spot">
+                            {% if session['skater_id'] %}
+                                <a href="/addspot">Add a spot</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div>
-                        New Spots
+                    <div class="index-main">
+                        Main Feature Area
                     </div>
-                    <div>
-                        Categories
+                    <div class="d-flex justify-content-between">
+                        <div class="col-3 index-news">
+                            <div class="news-list p-3">
+                                <h4>Skate News</h4>
+                                <ul>
+                                    <li>Thrasher</li>
+                                    <li>Transworld</li>
+                                    <li>Twitter</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 index-vid">video</div>
+                        <div class="col-3 index-resources">Resources</div>
                     </div>
                     <!-- <div class="donut">
                         <h4 class="text-curve">test donut</h4>
