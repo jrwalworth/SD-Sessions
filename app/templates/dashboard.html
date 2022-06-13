@@ -34,13 +34,29 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                <div class="profile-details">
-                    show profile details here
+                <div class="profile-details d-flex">
+                    <div class="card col-6">
+                        <div class="row col-6">
+                            <div class="col">
+                                <img src="{{skater.avatar}}" alt="avatar-img">
+                                <h5>{{skater.stance}}</h5>
+                            </div>
+                            <div class="col">
+                                <p>{{skater.first_name}} {{skater.last_name}}</p>
+                                <p>{{skater.email}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Bio: {{skater.bio}}</div>
+                            <a href="/profile/{{skater.id}}/edit">Edit Profile</a>
+                        </div>
+                    </div>
+                    <div class="card ms-1 col-6">messages</div>
                 </div>
                 <div class="row">
                     <div class="left-main">
                         <ul>
-                            <li><a href="/profile/{{skater.id}}/edit">Edit Profile</a></li>
+                            <li></li>
                             <li><a href="#">Your favorites</a></li>
                             {% if session['skater_id'] %}
                             <li><a href="/addspot">Add a spot</a></li>
@@ -50,7 +66,7 @@
                     </div>
                     <div class="right-main">
                         <h4>Featured...</h4>
-                        <div>messages</div>
+                        
                         <div>online friends</div>
                         <div></div>
                     </div>

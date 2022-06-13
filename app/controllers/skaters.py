@@ -21,7 +21,7 @@ def loginpg():
 def register():
     isValid = Skater.validate_registration(request.form)
     if not isValid:
-        return redirect('/')
+        return redirect('/loginpg')
     newSkater = {
         'username' : request.form['username'],
         'first_name' : request.form['first_name'],
@@ -36,7 +36,7 @@ def register():
     id = Skater.insert(newSkater)
     if not id:
         flash('Something went wrong.')
-        return redirect('/')
+        return redirect('/loginpg')
     session['skater_id'] = id
     # flash('You are logged in.')
     return redirect('/dashboard')
@@ -50,10 +50,10 @@ def login():
     skater = Skater.get_username(data)
     if not skater:
         flash('That username is not in our database. Please register.')
-        return redirect('/')
+        return redirect('/loginpg')
     if not bcrypt.check_password_hash(skater.password, request.form['password']):
         flash('Wrong password.')
-        return redirect('/')
+        return redirect('/loginpg')
     session['skater_id'] = skater.id
     # flash('You are logged in.')
     return redirect('/dashboard')

@@ -1,9 +1,25 @@
 * {
     margin: 0;
     padding: 0;
+    /* border: 1px dotted red; */
+}
+
+.list-content {
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.spot-img {
+    width: 200px;
+    height: 200px;
 }
 
 .list-view {
+    padding: 3rem;
+    margin: auto;
 
 }
 
@@ -19,4 +35,23 @@
     border: 3px solid grey;
     box-shadow: 5px 7px 7px brown;
     opacity: 70%;
+}
+
+.spot-name {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+
+.actions {
+    border-top: 1px solid rgb(171, 168, 168);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.action-list {
+    list-style-type: none;
+    width: 60%;
+    padding-top: 1rem;
+    
 }

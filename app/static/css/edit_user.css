@@ -16,3 +16,12 @@ section {
     padding: 5px;
     margin: 5px;
 }
+
+.uForm {
+    background-color: #eee;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.update-btn {
+}
