@@ -21,7 +21,7 @@
 }
 .main-content {
     width: 95%;
-    height: 100vh;
+    /* height: 100vh; */
     margin: auto;
     text-align: center;
     margin-top: 2rem;

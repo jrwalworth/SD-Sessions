@@ -21,12 +21,27 @@
                 <div class="list-view">
                     {% for s in spots %}
                     <div class="card">
-                        <h3>{{s.name}}</h3>
-                        <p>{{s.spot_aka}}</p>
-                        <p>{{s.type}}</p>
-                        <p>Address: {{s.address}} {{s.city}} {{s.state}} {{s.zip}}</p>
-                        <p>{{s.descr}}</p>
-                        <p>Rating: {{s.rating}}</p>
+                        <div class="row"><h2 class="spot-name">{{s.name}}</h2></div>
+                        <div class="row">
+                            <div class="col col-4 mb-2">
+                                <img src="{{s.photos}}" class="spot-img mb-2" />
+                                <p>Rating: {{s.rating}}</p>
+                            </div>
+                            <div class="col col-6 spot-details p-3">
+                                <p>Also Known As: {{s.spot_aka}}</p>
+                                <p>Spot Type: {{s.type}}</p>
+                                <p>Address: {{s.address}} {{s.city}} {{s.state}} {{s.zip}}</p>
+                                <p>{{s.descr}}</p>
+                            </div>
+                        </div>
+                        <div class="row actions">
+                            <ul class="d-flex justify-content-around align-items-center action-list">
+                                <li>Edit</li>
+                                <li>Favorite</li>
+                                <li>Directions</li>
+                                <li>Map View</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     {% endfor %}
