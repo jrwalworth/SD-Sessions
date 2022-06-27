@@ -1,0 +1,10 @@
+.wrapper {
+    background-image: url('../img/pexels-tima-miroshnichenko-7946166.jpg');
+    
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.list-content h1 {
+    text-align: start;
+}

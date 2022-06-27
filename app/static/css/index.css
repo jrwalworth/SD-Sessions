@@ -4,9 +4,11 @@
     /* border: 1px dotted red; */
     font-family: Ubuntu;
 }
-/* .wrapper {
-    width: 100%;
-} */
+.wrapper {
+    background-image: url('../img/pexels-kirby-crumpler-3283879.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
 
 .header-area {
     /* border: 1px dotted purple; */
@@ -16,15 +18,21 @@
 }
 
 .index-main {
-    height: 400px;
-    background-color: rgb(157, 119, 119);
+    height: 600px;
+    /* background-color: rgb(213, 169, 169); */
+    vertical-align: bottom;
 }
 .main-content {
     width: 95%;
-    /* height: 100vh; */
     margin: auto;
-    text-align: center;
+    text-align: start;
     margin-top: 2rem;
+    opacity: .7;
+    
+}
+
+.bottom-sect {
+    height: 5rem;
 }
 
 .donut {
@@ -114,7 +122,7 @@ background-color:#222222;
 
 .index-vid, .index-news, .index-resources {
     margin-top: 1rem;
-    height: 400px;
+    height: 4rem;
     border: 1px solid grey;
 }
 

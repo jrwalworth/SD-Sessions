@@ -15,6 +15,7 @@
     padding-left: 30px;
     padding-right: 30px;
     box-shadow: 5px 10px 18px #888888;
+    min-width: 1100px;
 }
 
 .nav-links {
@@ -66,11 +67,12 @@
 
 @media only screen and (max-width: 1200px){
     .nav-links {
-        display: none;
+        /* display: none; */
+        transform: scale(.6);
     }
 
-    .navbar-toggler {
+    /* .navbar-toggler {
         display: inline-flex;
-    }
+    } */
 
 }

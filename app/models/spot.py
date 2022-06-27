@@ -76,7 +76,7 @@ class Spot:
     @classmethod
     def update_spot(cls, data):
         query = "UPDATE spot SET skater_id=%(skater_id)s, name=%(name)s, spot_aka=%(spot_aka)s, descr=%(descr)s, address=%(address)s,\
-            city=%(city)s, state=%(state)s, zip=%(zip)s, lon=%(lon)s,  lat=%(lat)s, type=%(type)s,\
+            city=%(city)s, state=%(state)s, zip=%(zip)s, type=%(type)s,\
             photos=%(photos)s, rating=%(rating)s, updated_at=NOW() WHERE id=%(id)s;"
         return connectToMySQL(cls.db).query_db(query, data)
     

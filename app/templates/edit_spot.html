@@ -4,11 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<<<<<<< HEAD
         <title>SD-Sessions Edit Spot</title>
-=======
-        <title>Edit Spot</title>
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
         <meta name="description" content="Local skatespots and skateparks at your fingertips.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,45 +22,30 @@
             <div class="main-spot-content">
                 <h1>Edit Skate Spot</h1>
                     <div class="spot-content">
-                        <form action='/spots/update' class='spotForm col-10 p-3' method='post'>
+                        <form action='/spots/{{spot.id}}/update' class='spotForm col-10 p-3' method='post'>
                             <div class="row">
                                 <div class="col col-5">
                                     <section class="form-section p-2">
-<<<<<<< HEAD
                                         <label for="photos" class="mb-1">Edit Image Url:</label>
                                         <input type="text" class="d-block mb-1 form-control" name="photos" value="{{spot.photos}}">
                                     </section>
                                     <section class="form-section p-2">
                                         <label for="type" class=" mb-1">Type:</label>
-                                        <select name="type" id="type" class="form-control" data-placeholder="{{spot.type}}">
-=======
-                                        <label for="photos" class="mb-1">Add Image Url:</label>
-                                        <input type="text" class="d-block mb-1 form-control" name="photos" value={{spot.photos}}>
-                                    </section>
-                                    <section class="form-section p-2">
-                                        <label for="type" class=" mb-1">Type:</label>
                                         <select name="type" id="type" class="form-control">
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
+                                            <option value="{{spot.type}}" selected >{{spot.type}} </option>
                                             <option value="Street">Street</option>
                                             <option value="Skatepark">Skatepark</option>
                                         </select>
                                     </section>
                                     <section class="form-section p-2">
                                         <label for="rating" class="mb-1">Rating (1-4):</label>
-<<<<<<< HEAD
                                         <input type="number" class="d-block mb-1 form-control" name="rating" value="{{spot.rating}}">
                                     </section>
-                                    <input type="hidden" name="skater_id" value="{{skater.id}}">
-=======
-                                        <input type="number" class="d-block mb-1 form-control" name="rating" value={{spot.rating}}>
-                                    </section>
-                                    <!-- <input type="hidden" name="skater_id" value="{{skater.id}}"> -->
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
+                                    <input type="hidden" name="skater_id" value="{{spot.skater_id}}">
                                 </div>
                                 <div class="col col-7">
                                     <section class="form-section p-2 ">
                                         <label for="name" class="mb-1">Name:</label>
-<<<<<<< HEAD
                                         <input type="text" class="d-block mb-1 form-control" name="name" value="{{spot.name}}">
                                     </section>
                                     <section class="form-section p-2">
@@ -74,22 +55,10 @@
                                     <section class="form-section p-2">
                                         <label for="address" class=" mb-1">Address:</label>
                                         <input type="text" class="d-block mb-1 form-control" name="address" value="{{spot.address}}">
-=======
-                                        <input type="text" class="d-block mb-1 form-control" name="name" value={{spot.name}}>
-                                    </section>
-                                    <section class="form-section p-2">
-                                        <label for="spot_aka" class="mb-1">Nicknames:</label>
-                                        <input type="text" class="d-block mb-1 form-control" name="spot_aka" value={{spot.spot_aka}}>
-                                    </section> 
-                                    <section class="form-section p-2">
-                                        <label for="address" class=" mb-1">Address:</label>
-                                        <input type="text" class="d-block mb-1 form-control" name="address" value={{spot.address}}>
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
                                     </section>
                                     <div class="row d-flex justify-content-around">
                                         <section class="form-section p-2">
                                             <label for="city" class="mb-1">City:</label>
-<<<<<<< HEAD
                                             <input type="text" class="mb-1 form-control" name="city" value="{{spot.city}}">
                                         </section>
                                         <section class="form-section p-2">
@@ -99,17 +68,6 @@
                                         <section class="form-section p-2">
                                             <label for="zip" class="mb-1">Zipcode:</label>
                                             <input type="text" class="mb-1 form-control" name="zip" value="{{spot.zip}}">
-=======
-                                            <input type="text" class="mb-1 form-control" name="city" value={{spot.city}}>
-                                        </section>
-                                        <section class="form-section p-2">
-                                            <label for="State" class= "mb-1">State:</label>
-                                            <input type="text" class="mb-1 form-control" name="state" value={{spot.state}}>
-                                        </section>
-                                        <section class="form-section p-2">
-                                            <label for="zip" class="mb-1">Zipcode:</label>
-                                            <input type="text" class="mb-1 form-control" name="zip" value={{spot.zip}}>
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
                                         </section>
                                     </div>
                                     <section>
@@ -122,7 +80,10 @@
                                         <!-- <input type="textarea" class="d-block mb-4 form-control" name="descr"> -->
                                     </section>
                                 </div>
-                                <input type='submit' value="Submit Edits" class="btn btn-outline-dark mt-2 mb-2">
+                                <section class="d-flex justify-content-between edit-actions">
+                                    <button class="btn btn-outline-danger mt-2 mb-2"><a href="/spots/{{spot.id}}/delete">Delete</a></button>
+                                    <input type='submit' value="Submit Edits" class="btn btn-outline-dark mt-2 mb-2">
+                                </section>
                             </div>
                         </form>
                     </div>

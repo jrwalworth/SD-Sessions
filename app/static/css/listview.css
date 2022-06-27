@@ -34,7 +34,7 @@
 .card:hover {
     border: 3px solid grey;
     box-shadow: 5px 7px 7px brown;
-    opacity: 70%;
+    /* opacity: 70%; */
 }
 
 .spot-name {

@@ -63,31 +63,19 @@ def edit_spot(id):
         'id': id,
     }
     spot = Spot.get_one_spot(data)
-<<<<<<< HEAD
-    # skater = Spot.get_skater_from_spot(data)
-=======
-
-    skdata = {
-        "id": id,
-    }
-    skater = Skater.get_one(skdata)
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
     if 'skater_id' not in session:
         flash('You must be logged in to view this page.')
         return redirect('/')
     if spot.skater_id != session['skater_id']:
         flash('You did not create this spot to be able to udpate it.')
-        return redirect('/dashboard')
-<<<<<<< HEAD
-    return render_template('edit_spot.html', spot=spot, skater = spot.skater_id)
-=======
-    return render_template('edit_spot.html', spot=spot, skater=skater)
->>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
+        
+    return render_template('edit_spot.html', spot=spot, skater_id = spot.skater_id)
     
     
-@app.route('/spots/update', methods=['POST'])
-def update_spot_in_db():
+@app.route('/spots/<int:id>/update', methods=['POST'])
+def update_spot_in_db(id):
     data = {
+        'id' : id,
         'skater_id' : session['skater_id'],
         'name' : request.form['name'],
         'spot_aka' : request.form['spot_aka'],
@@ -96,14 +84,16 @@ def update_spot_in_db():
         'city' : request.form['city'],
         'state' : request.form['state'],
         'zip' : request.form['zip'],
-        'lon' : request.form['lon'],
-        'lat' : request.form['lat'],
         'type' : request.form['type'],
         'photos' : request.form['photos'],
         'rating' : request.form['rating'],
     }
     Spot.update_spot(data)
-    return redirect('/dashboard')
+    # return data['type']
+    if data['type'] == 'Street':
+        return redirect('/street')
+    return redirect('/parks')
+    # return redirect('/dashboard')
 
 #Delete spot
 @app.route('/spots/<int:id>/delete')
