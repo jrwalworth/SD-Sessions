@@ -7,7 +7,11 @@ from app import app
 @app.route('/street')
 def street():
     spots = Spot.get_all_streetspots()
-    return render_template('street.html', spots=spots)
+    data = {
+        "id": id,
+    }
+    skater = Skater.get_one(data)
+    return render_template('street.html', spots=spots, skater=skater)
 
 #get all skate parks
 @app.route('/parks')
@@ -59,14 +63,26 @@ def edit_spot(id):
         'id': id,
     }
     spot = Spot.get_one_spot(data)
+<<<<<<< HEAD
     # skater = Spot.get_skater_from_spot(data)
+=======
+
+    skdata = {
+        "id": id,
+    }
+    skater = Skater.get_one(skdata)
+>>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
     if 'skater_id' not in session:
         flash('You must be logged in to view this page.')
         return redirect('/')
     if spot.skater_id != session['skater_id']:
         flash('You did not create this spot to be able to udpate it.')
         return redirect('/dashboard')
+<<<<<<< HEAD
     return render_template('edit_spot.html', spot=spot, skater = spot.skater_id)
+=======
+    return render_template('edit_spot.html', spot=spot, skater=skater)
+>>>>>>> 9d4d8ecd47566283d6be89ca599b339b44a54cc7
     
     
 @app.route('/spots/update', methods=['POST'])
