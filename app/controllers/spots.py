@@ -59,13 +59,14 @@ def edit_spot(id):
         'id': id,
     }
     spot = Spot.get_one_spot(data)
+    # skater = Spot.get_skater_from_spot(data)
     if 'skater_id' not in session:
         flash('You must be logged in to view this page.')
         return redirect('/')
     if spot.skater_id != session['skater_id']:
         flash('You did not create this spot to be able to udpate it.')
         return redirect('/dashboard')
-    return render_template('edit_spot.html', spot=spot)
+    return render_template('edit_spot.html', spot=spot, skater = spot.skater_id)
     
     
 @app.route('/spots/update', methods=['POST'])
@@ -88,7 +89,7 @@ def update_spot_in_db():
     Spot.update_spot(data)
     return redirect('/dashboard')
 
-#Delete recipe
+#Delete spot
 @app.route('/spots/<int:id>/delete')
 def delete(id):
     data = {

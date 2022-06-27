@@ -58,6 +58,14 @@ class Spot:
         return cls(results[0])
     
     @classmethod
+    def get_skater_from_spot(cls, data):
+        query = "SELECT skater_id FROM spot where id=%(id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+    
+    @classmethod
     def insert_spot(cls, data):
         query = "INSERT INTO spot ( skater_id, name, spot_aka, descr, address, city, state, zip, \
             type, photos, rating, created_at, updated_at) VALUES (%(skater_id)s, %(name)s, \
@@ -67,7 +75,7 @@ class Spot:
     
     @classmethod
     def update_spot(cls, data):
-        query = "UPDATE spot SET name=%(name)s, spot_aka=%(spot_aka)s, descr=%(descr)s, address=%(address)s,\
+        query = "UPDATE spot SET skater_id=%(skater_id)s, name=%(name)s, spot_aka=%(spot_aka)s, descr=%(descr)s, address=%(address)s,\
             city=%(city)s, state=%(state)s, zip=%(zip)s, lon=%(lon)s,  lat=%(lat)s, type=%(type)s,\
             photos=%(photos)s, rating=%(rating)s, updated_at=NOW() WHERE id=%(id)s;"
         return connectToMySQL(cls.db).query_db(query, data)

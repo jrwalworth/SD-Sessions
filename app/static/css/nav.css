@@ -55,3 +55,22 @@
 #home {
     text-decoration: none;
 }
+
+
+@media only screen and (min-width: 1200px){
+    .navbar-toggler {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 1200px){
+    .nav-links {
+        display: none;
+    }
+
+    .navbar-toggler {
+        display: inline-flex;
+    }
+
+}
