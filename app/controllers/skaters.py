@@ -119,7 +119,10 @@ def dashboard():
         'id' : session['skater_id']
     }
     results = Skater.get_all()
-    return render_template('dashboard.html', skaterList = results, skater=Skater.get_one(data))
+    # favs = Skater.get_favs(data)
+    # print(favs)
+    return render_template('dashboard.html', skaterList = results, skater=Skater.get_one(data), fav=Skater.get_favs(data))
+
 
 #logout hidden method, redirect back to index login page.
 @app.route('/logout')

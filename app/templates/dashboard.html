@@ -58,7 +58,9 @@
                         <ul>
                             <li></li>
                             {% if session['skater_id'] %}
-                            <li><a href="/spot/{{skater.id}}/fav">Your favorites</a></li>
+                            <li><a href="/spot/{{skater.id}}/fav">Your favorites</a>
+                                {{fav}}
+                            </li>
                             <li><a href="/addspot">Add a spot</a></li>
                             {% endif %}
                         </ul>

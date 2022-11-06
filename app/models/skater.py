@@ -60,12 +60,26 @@ class Skater:
             VALUES(%(skater_id)s, %(spot_id)s, NOW(), NOW());"
         return connectToMySQL(cls.db).query_db(query, data)
     
+    @classmethod
+    def get_favs(cls, data):
+        # Get skater favorites list
+        query = "SELECT * FROM skater_fav_spot WHERE skater_id=%(skater_id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        print('results...', results)
+        # for f in results:
+        #     favs.append(cls(f))
+        return results
     
     
-    # @classmethod
-    # def get_favs(cls,data):
-    #     # Get skater favorites list
-    #     return True
+    #     @classmethod
+    # def get_all_streetspots(cls):
+    #     query = "SELECT * FROM spot WHERE type='Street';"
+    #     results = connectToMySQL(cls.db).query_db(query)
+    #     streetspots=[]
+    #     for s in results:
+    #         streetspots.append( cls(s) )
+    #     return streetspots
+
     
     # @classmethod
     # def rate_spot(cls, data):
