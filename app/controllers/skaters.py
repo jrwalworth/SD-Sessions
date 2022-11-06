@@ -85,6 +85,16 @@ def update_db(id):
     return redirect(f'/dashboard')
 
 
+# Add favorite
+@app.route('/spot/<int:id>/fav')
+def add_fav(id):
+    data = {
+        "skater_id": session['skater_id'],
+        "spot_id": id
+    }
+    Skater.add_skater_fav(data)
+    return redirect('/dashboard')
+
 @app.route('/community')
 def community():
     return render_template('community.html')

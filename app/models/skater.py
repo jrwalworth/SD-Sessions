@@ -17,7 +17,6 @@ class Skater:
         self.bio = data['bio']
         self.stance = data['stance']
         self.avatar = data['avatar']
-        self.fav_spots = []
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     
@@ -57,22 +56,26 @@ class Skater:
     @classmethod
     def add_skater_fav(cls,data):
         # For each spot user favorites, add to favorite list
-        return True
+        query = "INSERT INTO skater_fav_spot (skater_id, spot_id, created_at, updated_at) \
+            VALUES(%(skater_id)s, %(spot_id)s, NOW(), NOW());"
+        return connectToMySQL(cls.db).query_db(query, data)
     
-    @classmethod
-    def get_favs(cls,data):
-        # Get skater favorites list
-        return True
     
-    @classmethod
-    def rate_spot(cls, data):
-        # Allow user to rate specific spot out of 4 point rating scale.
-        return True
     
-    @classmethod
-    def get_ratings(cls, data):
-        # Get skater ratings for all spots they've rated.
-        return True
+    # @classmethod
+    # def get_favs(cls,data):
+    #     # Get skater favorites list
+    #     return True
+    
+    # @classmethod
+    # def rate_spot(cls, data):
+    #     # Allow user to rate specific spot out of 4 point rating scale.
+    #     return True
+    
+    # @classmethod
+    # def get_ratings(cls, data):
+    #     # Get skater ratings for all spots they've rated.
+    #     return True
     
     @classmethod
     def insert(cls, data):

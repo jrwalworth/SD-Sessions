@@ -1,4 +1,3 @@
-from sqlite3 import connect
 from app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
@@ -86,11 +85,11 @@ class Spot:
         query = "DELETE FROM spot WHERE id=%(id)s"
         return connectToMySQL(cls.db).query_db(query, data)
     
-    @classmethod
-    def rate_spot(cls, data):
-        # Todo - aggregate rating for every new skater rating
-        query = "SELECT rating/count(rating) FROM skater_fav_spot where id=%(id)s"
-        return connectToMySQL(cls.db).query_db(query, data)
+    # @classmethod
+    # def rate_spot(cls, data):
+    #     # Todo - aggregate rating for every new skater rating
+    #     query = "SELECT rating/count(rating) FROM skater_fav_spot where id=%(id)s"
+    #     return connectToMySQL(cls.db).query_db(query, data)
 
     @staticmethod
     #Skatespot addition - validations
