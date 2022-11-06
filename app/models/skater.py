@@ -63,7 +63,7 @@ class Skater:
     @classmethod
     def get_favs(cls, data):
         # Get skater favorites list
-        query = "SELECT * FROM skater_fav_spot WHERE skater_id=%(skater_id)s;"
+        query = "SELECT * FROM skater_fav_spot WHERE skater_id=%(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
         print('results...', results)
         # for f in results:

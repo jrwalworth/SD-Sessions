@@ -119,9 +119,9 @@ def dashboard():
         'id' : session['skater_id']
     }
     results = Skater.get_all()
-    # favs = Skater.get_favs(data)
+    allSpots = Spot.get_all_spots()
     # print(favs)
-    return render_template('dashboard.html', skaterList = results, skater=Skater.get_one(data), fav=Skater.get_favs(data))
+    return render_template('dashboard.html', skaterList = results, skater=Skater.get_one(data), fav=Skater.get_favs(data), spots = allSpots)
 
 
 #logout hidden method, redirect back to index login page.
