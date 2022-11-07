@@ -64,11 +64,27 @@ class Skater:
     def get_favs(cls, data):
         # Get skater favorites list
         query = "SELECT * FROM skater_fav_spot WHERE skater_id=%(id)s;"
+        
+        query2 = "SELECT sf.spot_id, s.name \
+            FROM skater_fav_spot sf, spot s \
+            WHERE sf.skater_id=%(id)s \
+            AND sf.spot_id = s.id;"
+            
+        query3 = "SELECT sf.spot_id, s.name \
+            FROM skater_fav_spot sf \
+            WHERE sf.skater_id=%(id)s\
+            LEFT JOIN spot s ON  sf.spot_id = s.id;"
+        # TODO join in spot table to bring up spot details
         results = connectToMySQL(cls.db).query_db(query, data)
+        results2 = connectToMySQL(cls.db).query_db(query2, data)
+        results3 = connectToMySQL(cls.db).query_db(query3, data)
+        
         print('results...', results)
+        print('results2:', results2)
+        print('results3...', results3)
         # for f in results:
         #     favs.append(cls(f))
-        return results
+        return results2
     
     
     #     @classmethod

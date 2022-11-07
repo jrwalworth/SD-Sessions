@@ -59,9 +59,11 @@
                             <li></li>
                             {% if session['skater_id'] %}
                             <li><a href="/spot/{{skater.id}}/fav">Your favorites</a>
+
                                 {% for f in fav %}
                                     <div>
-                                        <p>Spot Id: {{f.spot_id}} | Rating:{{f.rating}}</p>
+                                        <p>Spot Id: {{f.spot_id}} | Spot Name: {{f.name}}</p>
+                                        <p>Rating:{{f.rating}}</p>
                                     </div>
                                 {% endfor %}
 

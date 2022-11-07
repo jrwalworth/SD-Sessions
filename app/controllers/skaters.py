@@ -120,7 +120,6 @@ def dashboard():
     }
     results = Skater.get_all()
     allSpots = Spot.get_all_spots()
-    # print(favs)
     return render_template('dashboard.html', skaterList = results, skater=Skater.get_one(data), fav=Skater.get_favs(data), spots = allSpots)
 
 
